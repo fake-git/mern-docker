@@ -1,0 +1,42 @@
+version: '3.8'
+
+
+services: 
+
+
+  server:
+    container_name: oriya-server
+    restart: always
+    build: ./server
+    ports: 
+      - '8080:5000'
+    links: 
+    - mongo
+
+
+  client:
+    container_name: oriya-client
+    restart: always
+    build: ./client
+    ports: 
+      - '1000:3000'
+    depends_on: 
+      - 'server'
+
+
+  mongo:
+    container_name: oriya-mongo
+    restart: always
+    image: mongo
+    ports: 
+      - '27017:27017'
+    volumes: 
+      - ./mongo/data:/data/db  
+
+
+
+
+
+
+
+
