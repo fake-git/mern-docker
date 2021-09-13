@@ -13,7 +13,11 @@ app.use(express.json());
 
 
 const PORT = 5000;
+
+// on localhost
 // const URL = 'mongodb://localhost:27017/mern'
+
+// on docker container
 const URL = 'mongodb://mongo:27017/mern'
 
 
